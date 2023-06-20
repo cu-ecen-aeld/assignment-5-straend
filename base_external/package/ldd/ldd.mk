@@ -18,7 +18,6 @@ $(eval $(kernel-module))
 
 # Maybe not the smoothest way to enable loading of our modules
 define LDD_INSTALL_TARGET_CMDS
-	mkdir -p $(BR2_ROOTFS_OVERLAY)/bin/
 	$(INSTALL) -m 0755 $(@D)/scull/scull_load $(BR2_ROOTFS_OVERLAY)/bin/scull_load
 	$(INSTALL) -m 0755 $(@D)/scull/scull_unload $(BR2_ROOTFS_OVERLAY)/bin/scull_unload
 	

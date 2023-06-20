@@ -1,0 +1,26 @@
+#! /bin/sh
+set -e
+#load skull
+#load faulty driver
+#load hello module with modprobe and rmmod on shutdown
+
+NAME=lddmodules
+case "$1" in
+    start)
+        echo "loading modules"
+        modprobe hello
+        module_load faulty
+        scull_load
+        ;;
+    stop)
+        echo "Unloading modules"
+        rmmod hello
+        module_unload faulty
+        scull_unload
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+exit 0
+        
