@@ -1,0 +1,6 @@
+config BR2_PACKAGE_LDD
+	bool "ldd"
+    depends on BR2_LINUX_KERNEL
+	help
+	  Includes the hello and skull kernel modules.
+	  Used to understand buildroot external trees and kernel module builds.
